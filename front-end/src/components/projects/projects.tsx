@@ -50,7 +50,7 @@ export default function Projects(){
         {
             id: 4, 
             type: "assignment",
-            title: "Python Review and Linear Regression", 
+            title: "Python Introduction", 
             class: "CSCI 3900C", 
             description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
             status: "Completed",
@@ -63,7 +63,7 @@ export default function Projects(){
         {
             id: 5, 
             type: "assignment",
-            title: "Python Review and Linear Regression", 
+            title: "Introduction", 
             class: "CSCI 3900C", 
             description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
             status: "Completed",
@@ -76,7 +76,7 @@ export default function Projects(){
         {
             id: 6, 
             type: "assignment",
-            title: "Python Review and Linear Regression", 
+            title: "Introduction", 
             class: "CSCI 3900C", 
             description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
             status: "Completed",
@@ -108,7 +108,7 @@ export default function Projects(){
     ]
 
     return(
-        <section id="projects" className="w-full min-w-200 max-w-500 h-screen min-h-300 flex justify-center items-center">
+        <section id="projects" className="w-full min-w-200 max-w-500 h-screen min-h-200 flex justify-center items-center">
             <div className="w-3/4 h-full pt-[5vh] flex flex-col">
                 <div className="w-full h-1/2 flex">
                     <div className="w-1/2 h-full">
@@ -146,7 +146,7 @@ export default function Projects(){
                             data.map((project) => (
                                 activeProj === project.id
                                 &&
-                                <h1 key={project.id} className={`w-1/2 text-black text-3xl text-center font-semibold flex justify-center items-center ${style.appearHeader}`}>{project.title} Stack</h1>
+                                <h1 key={project.id} className={`w-full text-black text-3xl text-center font-semibold flex justify-center items-center ${style.appearHeader}`}>{project.title} Stack</h1>
                             ))
                         }
                         <div className="w-full flex justify-center items-center">

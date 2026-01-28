@@ -1,0 +1,26 @@
+
+.scrolldown{
+    animation: background1 200ms ease-in-out forwards;
+}
+
+.scrollup{
+    animation: background2 200ms ease-in-out forwards;
+}
+
+@keyframes background1{
+    0%{
+        background-color: rgba(0, 0, 0, 0)
+    }
+    100%{
+        background-color: rgba(0, 0, 0, 0.85)
+    }
+}
+
+@keyframes background2{
+    0%{
+        background-color: rgba(0, 0, 0, 0.85)
+    }
+    100%{
+        background-color: rgba(0, 0, 0, 0)
+    }
+}

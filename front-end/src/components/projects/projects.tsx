@@ -63,7 +63,7 @@ export default function Projects(){
         {
             id: 5, 
             type: "assignment",
-            title: "Introduction", 
+            title: "filler", 
             class: "CSCI 3900C", 
             description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
             status: "Completed",
@@ -76,7 +76,7 @@ export default function Projects(){
         {
             id: 6, 
             type: "assignment",
-            title: "Introduction", 
+            title: "filler", 
             class: "CSCI 3900C", 
             description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
             status: "Completed",

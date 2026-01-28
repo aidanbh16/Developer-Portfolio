@@ -1,6 +1,6 @@
 
 export default function Background(){
     return(
-        <div className="background_design fixed inset-0 -z-10"></div>
+        <div className="background_design min-w-200 fixed inset-0 -z-10"></div>
     )
 }

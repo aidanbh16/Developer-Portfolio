@@ -9,8 +9,8 @@ import Terminal from "../../../public/icons/terminal.png"
 export default function Experience(){
     return(
         /*--Desktop View--*/
-        <section id="experience" className="w-full min-w-200 max-w-500 h-screen min-h-200 flex justify-center items-center">
-            <div className="w-3/4 h-full flex flex-col items-center justify-center gap-y-10">
+        <section id="experience" className="w-full min-w-300 h-screen min-h-200 max-h-350 bg-black/10 flex justify-center items-center">
+            <div className="w-3/4 max-w-350 h-full flex flex-col items-center justify-center gap-y-10">
                 <div className="w-full min-h-150 flex justify-center items-start gap-x-10">
                     <div className="w-1/3 min-w-110 max-h-150 p-5 bg-white text-black flex flex-col gap-y-3 shadow-lg">
                         <div className="flex items-center gap-x-3">
@@ -89,31 +89,31 @@ export default function Experience(){
                 <div className="w-4/5 py-5 flex justify-center items-center">
                     <ul className="timeline">
                         <li>
-                            <div className="timeline-start timeline-box max-w-50 mb-2 bg-white text-black text-[14px] border-none shadow-md">Graduated Highschool</div>
+                            <div className="timeline-start timeline-box max-w-50 mb-2 bg-white text-black text-[14px] border-none shadow-md cursor-pointer transition-all duration-200 ease-in-out hover:scale-105">Graduated Highschool</div>
                             <time className="timeline-middle px-1 text-black text-md">May 2022</time>
                             <hr className="bg-black"/>
                         </li>
                         <li>
                             <hr className="bg-black"/>
-                            <div className="timeline-end timeline-box max-w-50 mt-2 bg-white text-black text-[14px] border-none shadow-md">Started University</div>
+                            <div className="timeline-end timeline-box max-w-50 mt-2 bg-white text-black text-[14px] border-none shadow-md cursor-pointer transition-all duration-200 ease-in-out hover:scale-105">Started University</div>
                             <time className="timeline-middle px-1 text-black text-md">Aug 2022</time>
                             <hr className="bg-black"/>
                         </li>
                         <li>
                             <hr className="bg-black"/>
-                            <div className="timeline-start timeline-box max-w-50 mb-2 bg-white text-black text-[14px] border-none shadow-md">Started position as IT Help Desk Technician</div>
+                            <div className="timeline-start timeline-box max-w-50 mb-2 bg-white text-black text-[14px] border-none shadow-md cursor-pointer transition-all duration-200 ease-in-out hover:scale-105">Started position as IT Help Desk Technician</div>
                             <time className="timeline-middle px-1 text-black text-md">Jan 2024</time>
                             <hr className="bg-black"/>
                         </li>
                         <li>
                             <hr className="bg-black"/>
-                            <div className="timeline-end timeline-box max-w-50 mt-2 bg-white text-black text-[14px] border-none shadow-md">Started position as SQL Developer Intern</div>
+                            <div className="timeline-end timeline-box max-w-50 mt-2 bg-white text-black text-[14px] border-none shadow-md cursor-pointer transition-all duration-200 ease-in-out hover:scale-105">Started position as SQL Developer Intern</div>
                             <time className="timeline-middle px-1 text-black text-md">Jan 2026</time>
                             <hr className="bg-black"/>
                         </li>
                         <li>
                             <hr className="bg-black"/>
-                            <div className="timeline-start timeline-box max-w-50 mt-2 bg-white text-black text-[14px] border-none shadow-md">Graduate University</div>
+                            <div className="timeline-start timeline-box max-w-50 mt-2 bg-white text-black text-[14px] border-none shadow-md cursor-pointer transition-all duration-200 ease-in-out hover:scale-105">Graduate University</div>
                             <time className="timeline-middle px-1 text-black text-md">Jul 2027</time>
                         </li>
                     </ul>

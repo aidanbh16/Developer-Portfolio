@@ -6,6 +6,7 @@ import style from "./projects.module.css"
 
 export default function Projects(){
     const [activeProj, setActiveProj] = useState<number | null>(null)
+    const [activeRow, setActiveRow] = useState(1)
 
     const data = [
         {
@@ -15,35 +16,35 @@ export default function Projects(){
             focus: "Web Development", 
             description: "This project is a personal portfolio site built to document and organize my technical work as it develops over time. It brings together projects, coursework, and applied experience in web development and systems-focused learning, including hands-on work with modern web frameworks, application structure, and technical problem-solving. The site is designed to grow alongside my experience, prioritizing clarity, structure, and an honest representation of ongoing work rather than polished end results.",
             status: "In Progress",
-            link: "github.com",
+            link: "https://github.com/aidanbh16/Developer-Portfolio",
             languages: ["TypeScript"],
             frameworks: ["NextJS", "NodeJS", "Nodemailer"],
             database: [],
             infra: ["Vercel"]
-        },
+        },        
         {
-            id: 2, 
+            id: 2,
             type: "project",
-            title: "Project 2",
+            title: "Developer Portfolio", 
             focus: "Web Development", 
             description: "This project is a personal portfolio site built to document and organize my technical work as it develops over time. It brings together projects, coursework, and applied experience in web development and systems-focused learning, including hands-on work with modern web frameworks, application structure, and technical problem-solving. The site is designed to grow alongside my experience, prioritizing clarity, structure, and an honest representation of ongoing work rather than polished end results.",
             status: "In Progress",
-            link: "github.com",
-            languages: ["Python"],
-            frameworks: ["NumPy", "Pandas"],
+            link: "https://github.com/aidanbh16/Developer-Portfolio",
+            languages: ["TypeScript"],
+            frameworks: ["NextJS", "NodeJS", "Nodemailer"],
             database: [],
             infra: ["Vercel"]
-        },
+        },        
         {
             id: 3,
             type: "project",
-            title: "Project 3", 
+            title: "Developer Portfolio", 
             focus: "Web Development", 
             description: "This project is a personal portfolio site built to document and organize my technical work as it develops over time. It brings together projects, coursework, and applied experience in web development and systems-focused learning, including hands-on work with modern web frameworks, application structure, and technical problem-solving. The site is designed to grow alongside my experience, prioritizing clarity, structure, and an honest representation of ongoing work rather than polished end results.",
             status: "In Progress",
-            link: "github.com",
+            link: "https://github.com/aidanbh16/Developer-Portfolio",
             languages: ["TypeScript"],
-            frameworks: ["NextJS", "NodeJS"],
+            frameworks: ["NextJS", "NodeJS", "Nodemailer"],
             database: [],
             infra: ["Vercel"]
         },
@@ -63,7 +64,7 @@ export default function Projects(){
         {
             id: 5, 
             type: "assignment",
-            title: "filler", 
+            title: "Python Introduction", 
             class: "CSCI 3900C", 
             description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
             status: "Completed",
@@ -76,7 +77,7 @@ export default function Projects(){
         {
             id: 6, 
             type: "assignment",
-            title: "filler", 
+            title: "Python Introduction", 
             class: "CSCI 3900C", 
             description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
             status: "Completed",
@@ -108,8 +109,8 @@ export default function Projects(){
     ]
 
     return(
-        <section id="projects" className="w-full min-w-200 max-w-500 h-screen min-h-200 flex justify-center items-center">
-            <div className="w-3/4 h-full pt-[5vh] flex flex-col">
+        <section id="projects" className="w-full min-w-300 max-w-500 h-screen min-h-200 max-h-350 flex justify-center items-center">
+            <div className="w-3/4 h-full py-[5vh] flex flex-col gap-y-10">
                 <div className="w-full h-1/2 flex">
                     <div className="w-1/2 h-full">
                         <h1 className="w-full h-1/10 px-10 text-black text-3xl font-semibold flex items-center">Assignments</h1>
@@ -117,13 +118,13 @@ export default function Projects(){
                             {data.map((data) => (
                                 data.type === "assignment"
                                 &&
-                                <li key={data.id} className={`w-full h-45 px-5 py-3 bg-linear-to-br from-black via-neutral-900 to-neutral-900 border-3 rounded-2xl shadow-lg flex flex-col items-start cursor-pointer transition-all duration-200 ease-in-out ${data.id === activeProj ? "border-[#007eff]" : "border-white"} hover:scale-101`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
+                                <li key={data.id} className={`w-full h-45 px-5 py-3 bg-linear-to-br from-black via-neutral-900 to-neutral-900 rounded-2xl shadow-lg flex flex-col items-start cursor-pointer transition-all duration-300 ease-in-out ${data.id === activeProj && "shadow-md shadow-[#007eff]"} hover:scale-101`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                     <div className="w-full h-1/5 flex">
                                         <h2 className="w-3/4 text-white text-xl text-start">{data.title}</h2>
-                                        <h2 className="w-1/4 text-white text-lg text-end">{data.class}</h2>
+                                        <h3 className="w-1/4 text-white text-lg text-end">{data.class}</h3>
                                     </div>
                                     <div className="w-full h-3/5 mt-2 overflow-y-scroll">
-                                        <p className="text-white">{data.description}</p>
+                                        <p className="text-white select-none">{data.description}</p>
                                     </div>
                                     <div className="w-full h-0.5 mt-2 bg-white"></div>
                                     <div className="w-full h-1/5 mt-2 flex">
@@ -134,9 +135,6 @@ export default function Projects(){
                             ))}
                         </ul>
                     </div>
-
-
-
                     <div className="w-1/2 h-full flex flex-col items-center justify-center gap-y-5">
                         {
                             activeProj === null
@@ -213,13 +211,68 @@ export default function Projects(){
                         </div>
                     </div>
                 </div>
-
-
-
-                <div className="w-full h-1/2 py-10 flex flex-col justify-start items-center">
-                    <h1 className="w-full text-black text-3xl font-semibold flex justify-center items-center">Projects</h1>
-                    <div className="w-full flex justify-center items-center gap-x-10">
-                            <div className="w-1/4 "></div>
+                <div className="w-full h-1/2 max-h-150 p-5 flex flex-col justify-start items-center">
+                    <h1 className="w-full h-1/10 text-black text-3xl font-semibold flex justify-center items-center">Projects</h1>
+                    <div className="w-full h-8/10 carousel flex gap-x-10">
+                        <div id="row1" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[58.5vh]">
+                                {data.filter(data => data.type === "project").slice(0, 3).map((data) => (
+                                    <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
+                                        <div className="flex">
+                                            <h2 className="w-1/2 text-black text-xl">{data.title}</h2>
+                                            <h3 className="w-1/2 text-black text-lg text-end">{data.focus}</h3>
+                                        </div>
+                                        <div className="w-full h-[90%] mt-2 overflow-y-scroll">
+                                            <p className="text-black select-none">{data.description}</p>
+                                        </div>
+                                        <div className="w-full h-0.5 mt-2 bg-black"></div>
+                                        <div className="w-full mt-2 flex items-end">
+                                            <div className="w-1/2 text-black text-start">Status: {data.status}</div>
+                                            <div className="w-1/2 text-black text-end"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
+                                        </div>
+                                    </div>
+                                ))}
+                        </div>
+                        <div id="row2" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[58.5vh]">
+                                {data.filter(data => data.type === "project").slice(3, 7).map((data) => (
+                                    <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
+                                        <div className="flex">
+                                            <h2 className="w-1/2 text-black text-xl">{data.title}</h2>
+                                            <h3 className="w-1/2 text-black text-lg text-end">{data.focus}</h3>
+                                        </div>
+                                        <div className="w-full h-[90%] mt-2 overflow-y-scroll">
+                                            <p className="text-black select-none">{data.description}</p>
+                                        </div>
+                                        <div className="w-full h-0.5 mt-2 bg-black"></div>
+                                        <div className="w-full mt-2 flex items-end">
+                                            <div className="w-1/2 text-black text-start">Status: {data.status}</div>
+                                            <div className="w-1/2 text-black text-end"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
+                                        </div>
+                                    </div>
+                                ))}
+                        </div>
+                        <div id="row3" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[58.5vh]">
+                                {data.filter(data => data.type === "project").slice(6, 10).map((data) => (
+                                    <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
+                                        <div className="flex">
+                                            <h2 className="w-1/2 text-black text-xl">{data.title}</h2>
+                                            <h3 className="w-1/2 text-black text-lg text-end">{data.focus}</h3>
+                                        </div>
+                                        <div className="w-full h-[90%] mt-2 overflow-y-scroll">
+                                            <p className="text-black select-none">{data.description}</p>
+                                        </div>
+                                        <div className="w-full h-0.5 mt-2 bg-black"></div>
+                                        <div className="w-full mt-2 flex items-end">
+                                            <div className="w-1/2 text-black text-start">Status: {data.status}</div>
+                                            <div className="w-1/2 text-black text-end"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
+                                        </div>
+                                    </div>
+                                ))}
+                        </div>
+                    </div>
+                    <div className="w-full h-1/10 flex justify-center items-center gap-x-5">
+                        <a href="#row1" className={`w-5 h-5 border-white border-5 rounded-full shadow-md transition-all hover:scale-110 hover:-translate-y-1 ${activeRow === 1 ? "bg-[#007eff]": "bg-white"}`} onClick={() => {setActiveRow(1)}}></a>
+                        <a href="#row2" className={`w-5 h-5 border-white border-5 rounded-full shadow-md transition-all hover:scale-110 hover:-translate-y-1 ${activeRow === 2 ? "bg-[#007eff]": "bg-white"}`} onClick={() => {setActiveRow(2)}}></a>
+                        <a href="#row3" className={`w-5 h-5 border-white border-5 rounded-full shadow-md transition-all hover:scale-110 hover:-translate-y-1 ${activeRow === 3 ? "bg-[#007eff]": "bg-white"}`} onClick={() => {setActiveRow(3)}}></a>
                     </div>
                 </div>
             </div>

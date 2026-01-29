@@ -215,7 +215,7 @@ export default function Projects(){
                 <div className="w-full h-1/2 max-h-150 p-5 flex flex-col justify-start items-center">
                     <h1 className="w-full h-1/10 text-black text-3xl font-semibold flex justify-center items-center">Projects</h1>
                     <div className="w-full h-8/10 carousel flex gap-x-10">
-                        <div id="row1" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[58.5vh]">
+                        <div id="row1" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[60vh]">
                                 {data.filter(data => data.type === "project").slice(0, 3).map((data) => (
                                     <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">
@@ -233,7 +233,7 @@ export default function Projects(){
                                     </div>
                                 ))}
                         </div>
-                        <div id="row2" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[58.5vh]">
+                        <div id="row2" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[60vh]">
                                 {data.filter(data => data.type === "project").slice(3, 7).map((data) => (
                                     <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">
@@ -251,7 +251,7 @@ export default function Projects(){
                                     </div>
                                 ))}
                         </div>
-                        <div id="row3" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[58.5vh]">
+                        <div id="row3" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[60vh]">
                                 {data.filter(data => data.type === "project").slice(6, 10).map((data) => (
                                     <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">

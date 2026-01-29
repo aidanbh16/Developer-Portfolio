@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Background from "@/components/layout/background";
 import Header from "@/components/layout/header/header";
+import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: "Aidan Holton | Portfolio",
@@ -15,6 +16,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
         <Header />
         {children}
         <Background />
+        <Footer />
       </body>
     </html>
   );

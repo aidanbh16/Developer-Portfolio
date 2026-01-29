@@ -25,28 +25,28 @@ export default function Projects(){
         {
             id: 2,
             type: "project",
-            title: "Developer Portfolio", 
-            focus: "Web Development", 
-            description: "This project is a personal portfolio site built to document and organize my technical work as it develops over time. It brings together projects, coursework, and applied experience in web development and systems-focused learning, including hands-on work with modern web frameworks, application structure, and technical problem-solving. The site is designed to grow alongside my experience, prioritizing clarity, structure, and an honest representation of ongoing work rather than polished end results.",
+            title: "filler", 
+            focus: "filler", 
+            description: "filler",
             status: "In Progress",
-            link: "https://github.com/aidanbh16/Developer-Portfolio",
-            languages: ["TypeScript"],
-            frameworks: ["NextJS", "NodeJS", "Nodemailer"],
+            link: "https://github.com/aidanbh16",
+            languages: [],
+            frameworks: [],
             database: [],
-            infra: ["Vercel"]
+            infra: []
         },        
         {
             id: 3,
             type: "project",
-            title: "Developer Portfolio", 
-            focus: "Web Development", 
-            description: "This project is a personal portfolio site built to document and organize my technical work as it develops over time. It brings together projects, coursework, and applied experience in web development and systems-focused learning, including hands-on work with modern web frameworks, application structure, and technical problem-solving. The site is designed to grow alongside my experience, prioritizing clarity, structure, and an honest representation of ongoing work rather than polished end results.",
+            title: "filler", 
+            focus: "filler", 
+            description: "filler",
             status: "In Progress",
-            link: "https://github.com/aidanbh16/Developer-Portfolio",
-            languages: ["TypeScript"],
-            frameworks: ["NextJS", "NodeJS", "Nodemailer"],
+            link: "https://github.com/aidanbh16",
+            languages: [],
+            frameworks: [],
             database: [],
-            infra: ["Vercel"]
+            infra: []
         },
         {
             id: 4, 
@@ -57,33 +57,33 @@ export default function Projects(){
             status: "Completed",
             link: "https://github.com/aidanbh16/CSCI-3900C-Assignment-1",
             languages: ["Python"],
-            frameworks: ["NumPy", "Pandas"],
+            frameworks: ["NumPy", "Pandas", "Matplotlib"],
             database: [],
             infra: []
         },
         {
             id: 5, 
             type: "assignment",
-            title: "Python Introduction", 
-            class: "CSCI 3900C", 
-            description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
-            status: "Completed",
-            link: "https://github.com/aidanbh16/CSCI-3900C-Assignment-1",
-            languages: ["Python"],
-            frameworks: ["NumPy", "Pandas"],
+            title: "filler", 
+            class: "filler", 
+            description: "filler",
+            status: "In Progress",
+            link: "https://github.com/aidanbh16",
+            languages: [],
+            frameworks: [],
             database: [],
             infra: []
         },
         {
             id: 6, 
             type: "assignment",
-            title: "Python Introduction", 
-            class: "CSCI 3900C", 
-            description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
-            status: "Completed",
-            link: "https://github.com/aidanbh16/CSCI-3900C-Assignment-1",
-            languages: ["Python"],
-            frameworks: ["NumPy", "Pandas"],
+            title: "filler", 
+            class: "filler", 
+            description: "filler",
+            status: "In Progress",
+            link: "https://github.com/aidanbh16",
+            languages: [],
+            frameworks: [],
             database: [],
             infra: []
         }
@@ -93,6 +93,7 @@ export default function Projects(){
         "Python",
         "NumPy",
         "Pandas",
+        "Matplotlib",
         "TypeScript",
         "JavaScript",
         "NextJS",
@@ -154,7 +155,7 @@ export default function Projects(){
                                 <ul className="w-2/3 flex flex-wrap justify-center items-center gap-x-5 gap-y-5">
                                     {
                                         tools_data.map((tool, index) => (
-                                                <li key={tool} className={`px-2 py-1 bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 175}ms` }}>{tool}</li>
+                                                <li key={tool} className={`px-2 py-1 bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer select-none transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 175}ms` }}>{tool}</li>
                                         ))
                                     }
                                 </ul>
@@ -169,7 +170,7 @@ export default function Projects(){
                                                 <ul className="flex flex-wrap gap-y-3 gap-x-3">
                                                     {
                                                         data.languages.map((lang, index) => (
-                                                                <div key={lang} className={`px-2 py-1 flex bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 350}ms` }}>{lang}</div>
+                                                                <div key={lang} className={`px-2 py-1 flex bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer select-none transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 350}ms` }}>{lang}</div>
                                                         ))
                                                     }
                                                 </ul>
@@ -179,7 +180,7 @@ export default function Projects(){
                                                 <ul className="flex flex-wrap gap-y-3 gap-x-3">
                                                     {
                                                         data.frameworks.map((fw, index) => (
-                                                                <div key={fw} className={`px-2 py-1 flex bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 350}ms` }}>{fw}</div>
+                                                                <div key={fw} className={`px-2 py-1 flex bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer select-none transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 350}ms` }}>{fw}</div>
                                                         ))
                                                     }
                                                 </ul>
@@ -189,7 +190,7 @@ export default function Projects(){
                                                 <ul className="flex flex-wrap gap-y-3 gap-x-3">
                                                     {
                                                         data.database.map((db, index) => (
-                                                                <div key={db} className={`px-2 py-1 flex bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 350}ms` }}>{db}</div>
+                                                                <div key={db} className={`px-2 py-1 flex bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer select-none transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 350}ms` }}>{db}</div>
                                                         ))
                                                     }
                                                 </ul>
@@ -199,7 +200,7 @@ export default function Projects(){
                                                 <ul className="flex flex-wrap gap-y-3 gap-x-3">
                                                     {
                                                         data.infra.map((infra, index) => (
-                                                                <div key={infra} className={`px-2 py-1 flex bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 350}ms` }}>{infra}</div>
+                                                                <div key={infra} className={`px-2 py-1 flex bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer select-none transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 350}ms` }}>{infra}</div>
                                                         ))
                                                     }
                                                 </ul>

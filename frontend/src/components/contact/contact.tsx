@@ -8,7 +8,7 @@ import Instagram from "../../../public/icons/instagram.png"
 
 export default function Contact(){
     return(
-        <section id="contact" className="w-full min-w-300 max-w-500 h-screen min-h-200 max-h-350 flex justify-center">
+        <section id="contact" className="w-full min-w-300 max-w-500 h-screen min-h-200 flex justify-center">
             <div className="w-3/4 h-full flex items-center gap-x-20">
                 <div className="w-2/3 flex items-center">
                     <div className="w-full h-full px-10 flex flex-col gap-y-5">

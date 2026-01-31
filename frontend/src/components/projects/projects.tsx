@@ -18,7 +18,7 @@ export default function Projects(){
             status: "In Progress",
             link: "https://github.com/aidanbh16/Developer-Portfolio",
             languages: ["TypeScript"],
-            frameworks: ["NextJS", "NodeJS", "Nodemailer"],
+            frameworks: ["NextJS", "NodeJS", "ExpressJS", "Nodemailer"],
             database: [],
             infra: ["Vercel"]
         },        
@@ -99,6 +99,7 @@ export default function Projects(){
         "NextJS",
         "ReactJS",
         "NodeJS",
+        "ExpressJS",
         "SQL",
         "T-SQL",
         "SSMS",
@@ -110,8 +111,8 @@ export default function Projects(){
     ]
 
     return(
-        <section id="projects" className="w-full min-w-300 max-w-500 h-screen min-h-200 max-h-350 flex justify-center items-center">
-            <div className="w-3/4 h-full py-[5vh] flex flex-col gap-y-10">
+        <section id="projects" className="w-full min-w-300 max-w-500 h-screen min-h-200 flex justify-center items-center">
+            <div className="w-3/4 h-full max-h-300 py-[5vh] flex flex-col gap-y-10">
                 <div className="w-full h-1/2 flex">
                     <div className="w-1/2 h-full">
                         <h1 className="w-full h-1/10 px-10 text-black text-3xl font-semibold flex items-center">Assignments</h1>
@@ -214,12 +215,12 @@ export default function Projects(){
                 </div>
                 <div className="w-full h-1/2 max-h-150 p-5 flex flex-col justify-start items-center">
                     <h1 className="w-full h-1/10 text-black text-3xl font-semibold flex justify-center items-center">Projects</h1>
-                    <div className="w-full h-8/10 carousel flex gap-x-10">
+                    <div className="w-full h-8/10 carousel flex gap-x-10 overflow-x-hidden">
                         <div id="row1" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[60vh]">
                                 {data.filter(data => data.type === "project").slice(0, 3).map((data) => (
                                     <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">
-                                            <h2 className="w-1/2 text-black text-xl">{data.title}</h2>
+                                            <h2 className="w-1/2 text-black text-lg">{data.title}</h2>
                                             <h3 className="w-1/2 text-black text-lg text-end">{data.focus}</h3>
                                         </div>
                                         <div className="w-full h-[90%] mt-2 overflow-y-scroll">

@@ -1,8 +1,10 @@
+import { Request, Response } from "express";
+import { readFile } from "fs/promises";
+
 import app from "../app"
 import path from "path"
-import fs from "fs/promises"
 
-app.get("/project/data", async (req, res) => {
+app.get("/project/data", async (req: Request, res: Response) => {
     async function fetchData(){
         try{
             const filePath = path.join(
@@ -12,7 +14,7 @@ app.get("/project/data", async (req, res) => {
                 "projects.json"
             );
             
-            const json = await fs.readFile(filePath, "utf8")
+            const json = await readFile(filePath, "utf8")
             const data = JSON.parse(json)
 
             return data

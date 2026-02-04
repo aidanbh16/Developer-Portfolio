@@ -1,6 +1,5 @@
-import express from "express"
-
-const app = express()
+import app from "./app"
+import "./routes/project_data.route"
 
 const PORT = 8080
 

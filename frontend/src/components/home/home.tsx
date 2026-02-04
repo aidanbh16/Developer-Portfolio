@@ -1,6 +1,6 @@
+"use client"
 
 import Image from "next/image";
-import style from "./home.module.css"
 
 import Terminal from "../../../public/icons/terminal.png"
 

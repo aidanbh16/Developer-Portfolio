@@ -1,93 +1,47 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import style from "./projects.module.css"
+
+type Project = {
+    id: number,
+    type: string,
+    title: string, 
+    focus: string,
+    class: string, 
+    description: string,
+    status: string,
+    link: string,
+    languages: string[],
+    frameworks: string[],
+    database: string[],
+    infra: string[]
+};
 
 export default function Projects(){
     const [activeProj, setActiveProj] = useState<number | null>(null)
     const [activeRow, setActiveRow] = useState(1)
+    const [data, setData] = useState<Project[]>([])
 
-    const data = [
-        {
-            id: 1,
-            type: "project",
-            title: "Developer Portfolio", 
-            focus: "Web Development", 
-            description: "This project is a personal portfolio site built to document and organize my technical work as it develops over time. It brings together projects, coursework, and applied experience in web development and systems-focused learning, including hands-on work with modern web frameworks, application structure, and technical problem-solving. The site is designed to grow alongside my experience, prioritizing clarity, structure, and an honest representation of ongoing work rather than polished end results.",
-            status: "In Progress",
-            link: "https://github.com/aidanbh16/Developer-Portfolio",
-            languages: ["TypeScript"],
-            frameworks: ["NextJS", "NodeJS", "ExpressJS", "Nodemailer"],
-            database: [],
-            infra: ["Vercel"]
-        },        
-        {
-            id: 2,
-            type: "project",
-            title: "filler", 
-            focus: "filler", 
-            description: "filler",
-            status: "In Progress",
-            link: "https://github.com/aidanbh16",
-            languages: [],
-            frameworks: [],
-            database: [],
-            infra: []
-        },        
-        {
-            id: 3,
-            type: "project",
-            title: "filler", 
-            focus: "filler", 
-            description: "filler",
-            status: "In Progress",
-            link: "https://github.com/aidanbh16",
-            languages: [],
-            frameworks: [],
-            database: [],
-            infra: []
-        },
-        {
-            id: 4, 
-            type: "assignment",
-            title: "Python Introduction", 
-            class: "CSCI 3900C", 
-            description: "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
-            status: "Completed",
-            link: "https://github.com/aidanbh16/CSCI-3900C-Assignment-1",
-            languages: ["Python"],
-            frameworks: ["NumPy", "Pandas", "Matplotlib"],
-            database: [],
-            infra: []
-        },
-        {
-            id: 5, 
-            type: "assignment",
-            title: "filler", 
-            class: "filler", 
-            description: "filler",
-            status: "In Progress",
-            link: "https://github.com/aidanbh16",
-            languages: [],
-            frameworks: [],
-            database: [],
-            infra: []
-        },
-        {
-            id: 6, 
-            type: "assignment",
-            title: "filler", 
-            class: "filler", 
-            description: "filler",
-            status: "In Progress",
-            link: "https://github.com/aidanbh16",
-            languages: [],
-            frameworks: [],
-            database: [],
-            infra: []
+    useEffect(() => {
+        async function fetchData(){
+            try{
+                let url: string;
+                if(window.location.hostname === "localhost"){
+                    url = "http://localhost:8080"
+                }else{
+                    url = window.location.origin
+                }
+                const response = await fetch(url + "/project/data")
+                const data = await response.json()
+                setData(data)
+            }catch{
+                setData([])
+            }
         }
-    ]
+        fetchData()
+    }, [])
 
     const tools_data = [
         "Python",
@@ -111,33 +65,32 @@ export default function Projects(){
     ]
 
     return(
-        <section id="projects" className="w-full min-w-300 max-w-500 h-screen min-h-200 flex justify-center items-center">
-            <div className="w-3/4 h-full max-h-300 py-[5vh] flex flex-col gap-y-10">
-                <div className="w-full h-1/2 flex">
-                    <div className="w-1/2 h-full">
+        <section id="projects" className="w-[80vw] min-w-200 h-screen min-h-200 flex justify-center items-center">
+            <div className="w-full h-[80vh] max-h-300 flex flex-col items-center gap-y-10">
+                <div className="w-4/5 min-w-265 h-1/2 flex gap-x-10">
+                    <div className="w-1/2 h-full border-b-2 border-black/30">
                         <h1 className="w-full h-1/10 px-10 text-black text-3xl font-semibold flex items-center">Assignments</h1>
                         <ul className="w-full h-9/10 px-10 py-1 flex flex-col items-center justify-start gap-y-5 overflow-y-scroll">
-                            {data.map((data) => (
-                                data.type === "assignment"
-                                &&
-                                <li key={data.id} className={`w-full h-45 px-5 py-3 bg-linear-to-br from-black via-neutral-900 to-neutral-900 rounded-2xl shadow-lg flex flex-col items-start cursor-pointer transition-all duration-300 ease-in-out ${data.id === activeProj && "shadow-md shadow-[#007eff]"} hover:scale-101`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
-                                    <div className="w-full h-1/5 flex">
-                                        <h2 className="w-3/4 text-white text-xl text-start">{data.title}</h2>
-                                        <h3 className="w-1/4 text-white text-lg text-end">{data.class}</h3>
-                                    </div>
-                                    <div className="w-full h-3/5 mt-2 overflow-y-scroll">
-                                        <p className="text-white select-none">{data.description}</p>
-                                    </div>
-                                    <div className="w-full h-0.5 mt-2 bg-white"></div>
-                                    <div className="w-full h-1/5 mt-2 flex">
-                                        <div className="w-1/2 text-white text-start">Status: {data.status}</div>
-                                        <div className="w-1/2 text-white text-end"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
-                                    </div>
-                                </li>
-                            ))}
+                            {data && data.filter(item => item.type == "assignment").map(data => (
+                                    <li key={data.id} className={`w-full h-45 px-5 py-3 bg-linear-to-br from-black via-neutral-900 to-neutral-900 shadow-[4px_4px_5px_rgba(0,0,0,0.5)] flex flex-col items-start cursor-pointer transition-all duration-300 ease-in-out ${data.id === activeProj && "shadow-[4px_4px_5px_rgba(0,126,255,1)]"} hover:scale-101`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
+                                        <div className="w-full h-1/5 flex">
+                                            <h2 className="w-3/4 text-white text-lg text-start">{data.title}</h2>
+                                            <h3 className="w-1/4 text-white text-end">{data.class}</h3>
+                                        </div>
+                                        <div className="w-full h-3/5 mt-2 overflow-y-scroll">
+                                            <p className="text-white select-none text-sm">{data.description}</p>
+                                        </div>
+                                        <div className="w-full h-0.5 mt-2 bg-white"></div>
+                                        <div className="w-full h-1/5 mt-2 flex">
+                                            <div className="w-1/2 text-white text-start text-sm">Status: {data.status}</div>
+                                            <div className="w-1/2 text-white text-end text-sm"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
+                                        </div>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </div>
-                    <div className="w-1/2 h-full flex flex-col items-center justify-center gap-y-5">
+                    <div className={`w-1/2 h-full max-h-100 flex flex-col items-center justify-start gap-y-5 overflow-y-scroll ${activeProj != null && "border-b-2 border-black/30"}`}>
                         {
                             activeProj === null
                             ?
@@ -149,11 +102,11 @@ export default function Projects(){
                                 <h1 key={project.id} className={`w-full text-black text-3xl text-center font-semibold flex justify-center items-center ${style.appearHeader}`}>{project.title} Stack</h1>
                             ))
                         }
-                        <div className="w-full flex justify-center items-center">
+                        <div className="w-full flex flex-col justify-start items-center">
                             {
                                 activeProj === null
                                 ?
-                                <ul className="w-2/3 flex flex-wrap justify-center items-center gap-x-5 gap-y-5">
+                                <ul className="w-2/3 flex flex-wrap justify-center items-start gap-x-5 gap-y-5">
                                     {
                                         tools_data.map((tool, index) => (
                                                 <li key={tool} className={`px-2 py-1 bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer select-none transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 175}ms` }}>{tool}</li>
@@ -164,7 +117,7 @@ export default function Projects(){
                                 data.map((data) => (
                                     activeProj === data.id
                                     &&
-                                    <ul key={data.id} className="w-2/3 flex flex-wrap justify-start items-center gap-x-5 gap-y-5">
+                                    <ul key={data.id} className="w-2/3 flex flex-wrap justify-center items-start gap-x-5 gap-y-5 ">
                                         <li className="flex flex-col gap-y-10">
                                             <div className={`flex flex-col gap-y-2 ${style.slidedown}`} style={{ animationDelay: `${1 * 175}ms` }}>
                                                 <h3 className="text-black text-xl font-semibold">Languages</h3>
@@ -213,59 +166,59 @@ export default function Projects(){
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-1/2 max-h-150 p-5 flex flex-col justify-start items-center">
+                <div className="w-3/4 h-1/2 max-h-150 p-5 flex flex-col justify-start items-center">
                     <h1 className="w-full h-1/10 text-black text-3xl font-semibold flex justify-center items-center">Projects</h1>
                     <div className="w-full h-8/10 carousel flex gap-x-10 overflow-x-hidden">
                         <div id="row1" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[60vh]">
                                 {data.filter(data => data.type === "project").slice(0, 3).map((data) => (
-                                    <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
+                                    <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start shadow-[4px_4px_2px_rgba(0,0,0,0.7)] cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-[4px_4px_2px_rgba(0,126,255,1)]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">
-                                            <h2 className="w-1/2 text-black text-lg">{data.title}</h2>
-                                            <h3 className="w-1/2 text-black text-lg text-end">{data.focus}</h3>
+                                            <h2 className="w-1/2 text-black text-md">{data.title}</h2>
+                                            <h3 className="w-1/2 text-black text-md text-end">{data.focus}</h3>
                                         </div>
                                         <div className="w-full h-[90%] mt-2 overflow-y-scroll">
-                                            <p className="text-black select-none">{data.description}</p>
+                                            <p className="text-black select-none text-sm">{data.description}</p>
                                         </div>
                                         <div className="w-full h-0.5 mt-2 bg-black"></div>
                                         <div className="w-full mt-2 flex items-end">
-                                            <div className="w-1/2 text-black text-start">Status: {data.status}</div>
-                                            <div className="w-1/2 text-black text-end"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
+                                            <div className="w-1/2 text-black text-start text-sm">Status: {data.status}</div>
+                                            <div className="w-1/2 text-black text-end text-sm"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
                                         </div>
                                     </div>
                                 ))}
                         </div>
                         <div id="row2" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[60vh]">
                                 {data.filter(data => data.type === "project").slice(3, 7).map((data) => (
-                                    <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
+                                    <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start shadow-md cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-[4px_4px_2px_rgba(0,126,255,1)]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">
-                                            <h2 className="w-1/2 text-black text-xl">{data.title}</h2>
-                                            <h3 className="w-1/2 text-black text-lg text-end">{data.focus}</h3>
+                                            <h2 className="w-1/2 text-black text-md">{data.title}</h2>
+                                            <h3 className="w-1/2 text-black text-md text-end">{data.focus}</h3>
                                         </div>
                                         <div className="w-full h-[90%] mt-2 overflow-y-scroll">
-                                            <p className="text-black select-none">{data.description}</p>
+                                            <p className="text-black select-none text-sm">{data.description}</p>
                                         </div>
                                         <div className="w-full h-0.5 mt-2 bg-black"></div>
                                         <div className="w-full mt-2 flex items-end">
-                                            <div className="w-1/2 text-black text-start">Status: {data.status}</div>
-                                            <div className="w-1/2 text-black text-end"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
+                                            <div className="w-1/2 text-black text-start text-sm">Status: {data.status}</div>
+                                            <div className="w-1/2 text-black text-end text-sm"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
                                         </div>
                                     </div>
                                 ))}
                         </div>
                         <div id="row3" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[60vh]">
                                 {data.filter(data => data.type === "project").slice(6, 10).map((data) => (
-                                    <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start rounded-xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-md shadow-[#007eff]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
+                                    <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start shadow-md cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-[4px_4px_2px_rgba(0,126,255,1)]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">
-                                            <h2 className="w-1/2 text-black text-xl">{data.title}</h2>
-                                            <h3 className="w-1/2 text-black text-lg text-end">{data.focus}</h3>
+                                            <h2 className="w-1/2 text-black text-md">{data.title}</h2>
+                                            <h3 className="w-1/2 text-black text-md text-end">{data.focus}</h3>
                                         </div>
                                         <div className="w-full h-[90%] mt-2 overflow-y-scroll">
-                                            <p className="text-black select-none">{data.description}</p>
+                                            <p className="text-black select-none text-sm">{data.description}</p>
                                         </div>
                                         <div className="w-full h-0.5 mt-2 bg-black"></div>
                                         <div className="w-full mt-2 flex items-end">
-                                            <div className="w-1/2 text-black text-start">Status: {data.status}</div>
-                                            <div className="w-1/2 text-black text-end"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
+                                            <div className="w-1/2 text-black text-start text-sm">Status: {data.status}</div>
+                                            <div className="w-1/2 text-black text-end text-sm"><a href={data.link} target="_black" className="transition-all duration-200 ease-in-out hover:text-[#007eff]">&lt; &gt; Source Code</a></div>
                                         </div>
                                     </div>
                                 ))}

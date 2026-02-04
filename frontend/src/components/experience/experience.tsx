@@ -9,10 +9,10 @@ import Terminal from "../../../public/icons/terminal.png"
 export default function Experience(){
     return(
         /*--Desktop View--*/
-        <section id="experience" className="w-full min-w-300 min-h-250 h-screen bg-black/10 flex justify-center items-center">
+        <section id="experience" className="w-full min-w-300 h-[80vh] min-h-250 bg-black/10 flex justify-center items-center">
             <div className="w-3/4 max-w-350 h-full flex flex-col items-center justify-center gap-y-10">
                 <div className="w-full min-h-150 flex justify-center items-start gap-x-10">
-                    <div className="w-1/3 min-w-110 max-h-150 p-5 bg-white text-black flex flex-col gap-y-3 shadow-lg">
+                    <div className="w-1/3 min-w-[25vw] max-h-[60vh] p-5 bg-white text-black flex flex-col gap-y-3 shadow-lg">
                         <div className="flex items-center gap-x-3">
                             <Image src={Cap} alt="Graduation Cap" className="w-10"/>
                             <h1 className="text-3xl font-semibold">Education</h1>
@@ -46,7 +46,7 @@ export default function Experience(){
                             </ul>
                         </div>
                     </div>
-                    <div className="w-1/3 min-w-110 max-h-150 p-5 bg-white text-black flex flex-col gap-y-3 shadow-lg">
+                    <div className="w-1/3 min-w-[25vw] max-h-[60vh] p-5 bg-white text-black flex flex-col gap-y-3 shadow-lg">
                         <div className="flex items-center gap-x-3">
                             <Image src={Suitcase} alt="Suitcase" className="w-9"/>
                             <h1 className="text-3xl font-semibold">Work Experience</h1>
@@ -67,7 +67,7 @@ export default function Experience(){
                             <li>Balance accuracy, efficiency, and professionalism while handling multiple requests</li>
                         </ul>
                     </div>
-                    <div className="w-1/3 min-w-110 max-h-150 p-5 bg-white text-black flex flex-col gap-y-3 shadow-lg">
+                    <div className="w-1/3 min-w-[25vw] max-h-[60vh] p-5 bg-white text-black flex flex-col gap-y-3 shadow-lg">
                         <div className="flex items-center gap-x-3">
                             <Image src={Terminal} alt="Terminal" className="w-9"/>
                             <h1 className="text-3xl font-semibold">Technical Experience</h1>

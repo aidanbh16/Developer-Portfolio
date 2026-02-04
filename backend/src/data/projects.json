@@ -1,0 +1,80 @@
+[   
+    {
+        "id": 1,
+        "type": "project",
+        "title": "Developer Portfolio", 
+        "focus": "Web Development", 
+        "description": "This project is a personal portfolio site built to document and organize my technical work as it develops over time. It brings together projects, coursework, and applied experience in web development and systems-focused learning, including hands-on work with modern web frameworks, application structure, and technical problem-solving. The site is designed to grow alongside my experience, prioritizing clarity, structure, and an honest representation of ongoing work rather than polished end results.",
+        "status": "In Progress",
+        "link": "https://github.com/aidanbh16/Developer-Portfolio",
+        "languages": ["TypeScript"],
+        "frameworks": ["NextJS", "NodeJS", "ExpressJS", "Nodemailer"],
+        "database": [],
+        "infra": ["Vercel"]
+    },        
+    {
+        "id": 2,
+        "type": "project",
+        "title": "Lucrum", 
+        "focus": "Web Development", 
+        "description": "filler",
+        "status": "In Progress",
+        "link": "https://github.com/aidanbh16",
+        "languages": ["TypeScript", "Python", "SQL"],
+        "frameworks": ["NextJS", "Gunicorn", "FastAPI", "NumPy", "Pandas"],
+        "database": ["PostgreSQL", "PG Admin 4", "Redis"],
+        "infra": ["Vercel", "AWS"]
+    },        
+    {
+        "id": 3,
+        "type": "project",
+        "title": "filler", 
+        "focus": "filler", 
+        "description": "filler",
+        "status": "In Progress",
+        "link": "https://github.com/aidanbh16",
+        "languages": [],
+        "frameworks": [],
+        "database": [],
+        "infra": []
+    },
+    {
+        "id": 4, 
+        "type": "assignment",
+        "title": "Python Introduction", 
+        "class": "CSCI 3900C", 
+        "description": "This assignment begins with a brief recap of core Python concepts needed for future work, including loops, conditionals, and recursion. It then introduces NumPy and Pandas through hands-on data analysis while exploring the mathematical foundation of simple linear regression.",
+        "status": "Completed",
+        "link": "https://github.com/aidanbh16/CSCI-3900C-Assignment-1",
+        "languages": ["Python"],
+        "frameworks": ["NumPy", "Pandas", "Matplotlib"],
+        "database": [],
+        "infra": []
+    },
+    {
+        "id": 5, 
+        "type": "assignment",
+        "title": "Matplotlib Practice", 
+        "class": "CSCI 4840", 
+        "description": "This is my Module 2 Assignment for CSCI 4840 'Machine Learning' and is based around graphing in Matplotlib.",
+        "status": "Completed",
+        "link": "https://github.com/aidanbh16/CSCI-4840-Assignment-2",
+        "languages": ["Python"],
+        "frameworks": ["NumPy", "Pandas", "Matplotlib"],
+        "database": [],
+        "infra": []
+    },
+    {
+        "id": 6, 
+        "type": "assignment",
+        "title": "filler", 
+        "class": "filler", 
+        "description": "filler",
+        "status": "In Progress",
+        "link": "https://github.com/aidanbh16",
+        "languages": [],
+        "frameworks": [],
+        "database": [],
+        "infra": []
+    }
+]

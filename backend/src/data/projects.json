@@ -10,7 +10,7 @@
         "languages": ["TypeScript"],
         "frameworks": ["NextJS", "NodeJS", "ExpressJS", "Nodemailer"],
         "database": [],
-        "infra": ["Vercel"]
+        "infra": ["Vercel", "Render"]
     },        
     {
         "id": 2,

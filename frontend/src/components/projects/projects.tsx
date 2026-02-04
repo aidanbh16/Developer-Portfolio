@@ -65,11 +65,11 @@ export default function Projects(){
         <section id="projects" className="w-[80vw] min-w-200 h-screen min-h-200 flex justify-center items-center">
             <div className="w-full h-[80vh] max-h-300 flex flex-col items-center gap-y-10">
                 <div className="w-4/5 min-w-265 h-1/2 flex gap-x-10">
-                    <div className="w-1/2 h-full border-b-2 border-black/30">
+                    <div className="w-1/2 h-full border-b-2 border-black/30 flex flex-col gap-y-5">
                         <h1 className="w-full h-1/10 px-10 text-black text-3xl font-semibold flex items-center">Assignments</h1>
-                        <ul className="w-full h-9/10 px-10 py-1 flex flex-col items-center justify-start gap-y-5 overflow-y-scroll">
+                        <ul className="w-full h-9/10 px-10 pb-5 flex flex-col items-center justify-start gap-y-5 overflow-y-scroll">
                             {data && data.filter(item => item.type == "assignment").map(data => (
-                                    <li key={data.id} className={`w-full h-45 px-5 py-3 bg-linear-to-br from-black via-neutral-900 to-neutral-900 shadow-[4px_4px_5px_rgba(0,0,0,0.5)] flex flex-col items-start cursor-pointer transition-all duration-300 ease-in-out ${data.id === activeProj && "shadow-[4px_4px_5px_rgba(0,126,255,1)]"} hover:scale-101`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
+                                    <li key={data.id} className={`w-full h-45 px-5 py-3  bg-linear-to-br from-black via-neutral-900 to-neutral-900 shadow-[4px_4px_5px_rgba(0,0,0,0.5)] flex flex-col items-start cursor-pointer transition-all duration-300 ease-in-out ${data.id === activeProj && "shadow-[4px_4px_5px_rgba(0,126,255,1)]"} hover:scale-101`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="w-full h-1/5 flex">
                                             <h2 className="w-3/4 text-white text-lg text-start">{data.title}</h2>
                                             <h3 className="w-1/4 text-white text-end">{data.class}</h3>
@@ -87,7 +87,7 @@ export default function Projects(){
                             }
                         </ul>
                     </div>
-                    <div className={`w-1/2 h-full max-h-100 flex flex-col items-center justify-start gap-y-5 overflow-y-scroll ${activeProj != null && "border-b-2 border-black/30"}`}>
+                    <div className={`w-1/2 h-full max-h-100 pb-5 flex flex-col items-center justify-start gap-y-5 overflow-y-scroll ${activeProj != null && "border-b-2 border-black/30"}`}>
                         {
                             activeProj === null
                             ?
@@ -103,7 +103,7 @@ export default function Projects(){
                             {
                                 activeProj === null
                                 ?
-                                <ul className="w-2/3 flex flex-wrap justify-center items-start gap-x-5 gap-y-5">
+                                <ul className="w-3/4 flex flex-wrap justify-center items-start gap-x-5 gap-y-5">
                                     {
                                         tools_data.map((tool, index) => (
                                                 <li key={tool} className={`px-2 py-1 bg-white text-black text-[18px] rounded-lg shadow-lg cursor-pointer select-none transition-all duration-150 ease-in-out hover:scale-105 ${style.appear}`} style={{ animationDelay: `${index * 175}ms` }}>{tool}</li>
@@ -114,7 +114,7 @@ export default function Projects(){
                                 data.map((data) => (
                                     activeProj === data.id
                                     &&
-                                    <ul key={data.id} className="w-2/3 flex flex-wrap justify-center items-start gap-x-5 gap-y-5 ">
+                                    <ul key={data.id} className="w-5/6 flex flex-wrap justify-start items-start gap-x-5 gap-y-5 ">
                                         <li className="flex flex-col gap-y-10">
                                             <div className={`flex flex-col gap-y-2 ${style.slidedown}`} style={{ animationDelay: `${1 * 175}ms` }}>
                                                 <h3 className="text-black text-xl font-semibold">Languages</h3>

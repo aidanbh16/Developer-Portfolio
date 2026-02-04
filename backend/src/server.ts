@@ -1,4 +1,5 @@
 import app from "./app"
+import "./routes/root.route"
 import "./routes/project_data.route"
 
 const PORT = 8080

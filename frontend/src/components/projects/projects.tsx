@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 
 import style from "./projects.module.css"
 
+import env from "../../config/config"
+
 type Project = {
     id: number,
     type: string,
@@ -28,12 +30,7 @@ export default function Projects(){
         async function fetchData(){
             try{
                 let url: string;
-                if(window.location.hostname === "localhost"){
-                    url = "http://localhost:8080"
-                }else{
-                    url = window.location.origin
-                }
-                const response = await fetch(url + "/project/data")
+                const response = await fetch(env.api_url + "/project/data")
                 const data = await response.json()
                 setData(data)
             }catch{

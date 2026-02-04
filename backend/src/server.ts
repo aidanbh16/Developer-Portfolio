@@ -1,8 +1,9 @@
 import app from "./app"
-import "./routes/root.route"
+import env from "./config/config"
+import "./routes/health.route"
 import "./routes/project_data.route"
 
-const PORT = 8080
+const PORT = env.port
 
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`)

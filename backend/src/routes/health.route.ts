@@ -1,5 +1,5 @@
 import app from "../app"
 
 app.get("/", (req, res) => {
-    res.send("Root test success!")
+    res.send("Health test success!")
 })

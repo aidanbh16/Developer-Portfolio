@@ -29,7 +29,6 @@ export default function Projects(){
     useEffect(() => {
         async function fetchData(){
             try{
-                let url: string;
                 const response = await fetch(env.api_url + "/project/data")
                 const data = await response.json()
                 setData(data)

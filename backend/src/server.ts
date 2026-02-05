@@ -1,7 +1,7 @@
 import app from "./app"
 import env from "./config/config"
 import "./routes/health.route"
-import "./routes/project_data.route"
+import "./routes/data.route"
 
 const PORT = env.port
 

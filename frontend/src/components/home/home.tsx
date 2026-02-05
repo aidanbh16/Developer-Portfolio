@@ -16,12 +16,12 @@ export default function Home(){
                             <h1 className="text-[#007eff] text-name text-7xl font-semibold text-shadow-lg">Aidan Holton</h1>
                         </div>
                         <div>
-                            <h2 className="text-black text-4xl text-shadow-md">SQL Developer Intern @ UNG</h2>
+                            <h2 className="text-black text-4xl text-shadow-md">Data Developer Intern @ UNG</h2>
                             <h3 className="text-black text-xl text-shadow-md">Computer Science Major / Machine Learning Minor</h3>
                         </div>
                         <div className="flex items-center gap-x-5">
-                            <a href="#projects"><button className="px-2 py-1 bg-black text-white font-semibold border-2 border-black rounded-md shadow-lg cursor-pointer transition-all hover:bg-white hover:text-black">Projects</button></a>
-                            <a href="/downloads/Resume.pdf" target="_blank" rel="noopener noreferrer" download><button className="px-2 py-1 bg-black text-white font-semibold border-2 border-black rounded-md shadow-lg cursor-pointer transition-all hover:bg-white hover:text-black">Resume</button></a>
+                            <a href="#projects"><button className="px-2 py-1 bg-black text-white font-semibold border-2 border-black rounded-md shadow-lg cursor-pointer transition-all hover:scale-95">Projects</button></a>
+                            <a href="/downloads/Resume.pdf" target="_blank" rel="noopener noreferrer" download><button className="px-2 py-1 bg-black text-white font-semibold border-2 border-black rounded-md shadow-lg cursor-pointer transition-all hover:scale-95">Resume</button></a>
                         </div>
                         <h4 className="text-black text-lg text-shadow-md">Based in Atlanta</h4>
                     </div>

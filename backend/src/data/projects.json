@@ -4,7 +4,7 @@
         "type": "project",
         "title": "Developer Portfolio", 
         "focus": "Web Development", 
-        "description": "This project is a personal portfolio site built to document and organize my technical work as it develops over time. It brings together projects, coursework, and applied experience in web development and systems-focused learning, including hands-on work with modern web frameworks, application structure, and technical problem-solving. The site is designed to grow alongside my experience, prioritizing clarity, structure, and an honest representation of ongoing work rather than polished end results.",
+        "description": "A personal portfolio site built to document and organize my technical work as it develops over time. It brings together projects, coursework, and applied experience in web development and systems-focused learning, including hands-on work with modern web frameworks, application structure, and technical problem-solving. The site is designed to grow alongside my experience, prioritizing clarity, structure, and an honest representation of ongoing work rather than polished end results.",
         "status": "In Progress",
         "link": "https://github.com/aidanbh16/Developer-Portfolio",
         "languages": ["TypeScript"],
@@ -17,13 +17,13 @@
         "type": "project",
         "title": "Lucrum", 
         "focus": "Web Development", 
-        "description": "filler",
+        "description": "A semester long group project for Software Engineering CSCI 3300.",
         "status": "In Progress",
         "link": "https://github.com/aidanbh16",
         "languages": ["TypeScript", "Python", "SQL"],
         "frameworks": ["NextJS", "Gunicorn", "FastAPI", "NumPy", "Pandas"],
         "database": ["PostgreSQL", "PG Admin 4", "Redis"],
-        "infra": ["Vercel", "AWS"]
+        "infra": ["AWS"]
     },        
     {
         "id": 3,

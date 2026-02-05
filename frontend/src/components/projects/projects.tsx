@@ -87,7 +87,7 @@ export default function Projects(){
                             }
                         </ul>
                     </div>
-                    <div className={`w-1/2 h-full max-h-100 pb-5 flex flex-col items-center justify-start gap-y-5 overflow-y-scroll ${activeProj != null && "border-b-2 border-black/30"}`}>
+                    <div className={`w-1/2 h-full pb-5 flex flex-col items-center justify-start gap-y-5 overflow-y-scroll ${activeProj != null && "border-b-2 border-black/30"}`}>
                         {
                             activeProj === null
                             ?

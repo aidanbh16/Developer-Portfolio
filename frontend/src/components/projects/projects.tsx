@@ -25,6 +25,7 @@ export default function Projects(){
     const [activeProj, setActiveProj] = useState<number | null>(null)
     const [activeRow, setActiveRow] = useState(1)
     const [data, setData] = useState<Project[]>([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         async function fetchData(){
@@ -32,6 +33,7 @@ export default function Projects(){
                 const response = await fetch(env.api_url + "/project/data")
                 const data = await response.json()
                 setData(data)
+                setLoading(true)
             }catch{
                 setData([])
             }
@@ -61,7 +63,7 @@ export default function Projects(){
     ]
 
     return(
-        <section id="projects" className="w-[80vw] min-w-200 h-screen min-h-200 flex justify-center items-center">
+        <section id="projects" className="w-[80vw] min-w-200 max-w-375 h-screen min-h-200 flex justify-center items-center">
             <div className="w-full h-[80vh] max-h-300 flex flex-col items-center gap-y-10">
                 <div className="w-4/5 min-w-265 h-1/2 flex gap-x-10">
                     <div className="w-1/2 h-full border-b-2 border-black/30 flex flex-col gap-y-5">
@@ -162,15 +164,15 @@ export default function Projects(){
                         </div>
                     </div>
                 </div>
-                <div className="w-3/4 h-1/2 max-h-150 p-5 flex flex-col justify-start items-center">
+                <div className="w-3/4 min-w-305 h-1/2 max-h-150 p-5 flex flex-col justify-start items-center">
                     <h1 className="w-full h-1/10 text-black text-3xl font-semibold flex justify-center items-center">Projects</h1>
                     <div className="w-full h-8/10 carousel flex gap-x-10 overflow-x-hidden">
                         <div id="row1" className="w-full flex justify-start items-center gap-x-10 carousel-item scroll-mt-[60vh]">
                                 {data.filter(data => data.type === "project").slice(0, 3).map((data) => (
                                     <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start shadow-[4px_4px_2px_rgba(0,0,0,0.7)] cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-[4px_4px_2px_rgba(0,126,255,1)]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">
-                                            <h2 className="w-1/2 text-black text-md">{data.title}</h2>
-                                            <h3 className="w-1/2 text-black text-md text-end">{data.focus}</h3>
+                                            <h2 className="w-2/3 text-black text-lg">{data.title}</h2>
+                                            <h3 className="w-1/3 text-black text-lg text-end">{data.focus}</h3>
                                         </div>
                                         <div className="w-full h-[90%] mt-2 overflow-y-scroll">
                                             <p className="text-black select-none text-sm">{data.description}</p>
@@ -187,8 +189,8 @@ export default function Projects(){
                                 {data.filter(data => data.type === "project").slice(3, 7).map((data) => (
                                     <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start shadow-md cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-[4px_4px_2px_rgba(0,126,255,1)]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">
-                                            <h2 className="w-1/2 text-black text-md">{data.title}</h2>
-                                            <h3 className="w-1/2 text-black text-md text-end">{data.focus}</h3>
+                                            <h2 className="w-1/2 text-black text-lg">{data.title}</h2>
+                                            <h3 className="w-1/2 text-black text-lg text-end">{data.focus}</h3>
                                         </div>
                                         <div className="w-full h-[90%] mt-2 overflow-y-scroll">
                                             <p className="text-black select-none text-sm">{data.description}</p>
@@ -205,8 +207,8 @@ export default function Projects(){
                                 {data.filter(data => data.type === "project").slice(6, 10).map((data) => (
                                     <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start shadow-md cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-[4px_4px_2px_rgba(0,126,255,1)]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
                                         <div className="flex">
-                                            <h2 className="w-1/2 text-black text-md">{data.title}</h2>
-                                            <h3 className="w-1/2 text-black text-md text-end">{data.focus}</h3>
+                                            <h2 className="w-1/2 text-black text-lg">{data.title}</h2>
+                                            <h3 className="w-1/2 text-black text-lg text-end">{data.focus}</h3>
                                         </div>
                                         <div className="w-full h-[90%] mt-2 overflow-y-scroll">
                                             <p className="text-black select-none text-sm">{data.description}</p>

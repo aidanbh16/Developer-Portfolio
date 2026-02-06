@@ -75,7 +75,7 @@ export default function Header(){
         /*--Desktop View--*/
         <header id="header" className="w-full min-w-200 h-10 px-10 flex fixed z-100">
             <div className="w-1/2 h-full flex justify-start items-center gap-x-2">
-                <Image src={Terminal} alt="EMT" className="image w-6"></Image>
+                <Image src={Terminal} alt="Terminal" className="image w-6"></Image>
                 <h1 className="name text-black text-xl text-shadow-lg">Aidan Holton</h1>
             </div>
             <nav className="w-1/2 h-full flex justify-end items-center gap-x-5">

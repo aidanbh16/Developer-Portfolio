@@ -64,7 +64,7 @@ export default function Projects(){
     ]
 
     return(
-        <section id="projects" className="w-[80vw] min-w-200 max-w-375 h-screen min-h-200 flex justify-center items-center scale-90">
+        <section id="projects" className="w-[80vw] min-w-200 max-w-375 h-screen min-h-200 flex justify-center items-center scale-90 scroll-mt-[5vh]">
             <div className="w-full h-[80vh] max-h-300 flex flex-col items-center gap-y-10">
                 <div className="w-4/5 min-w-265 h-1/2 flex gap-x-10">
                     <div className="w-1/2 h-full border-b-2 border-black/30 flex flex-col gap-y-5">
@@ -167,7 +167,7 @@ export default function Projects(){
                 </div>
                 <div className="w-3/4 min-w-305 h-1/2 max-h-150 p-5 flex flex-col justify-start items-center">
                     <h1 className="w-full h-1/10 text-black text-3xl font-semibold flex justify-center items-center">Projects</h1>
-                    <div className="w-full h-8/10 carousel flex gap-x-10 overflow-x-hidden">
+                    <div className="w-full h-8/10 carousel flex gap-x-10 overflow-x-auto scroll-smooth">
                         <div id="row1" className="w-full flex justify-start items-center gap-x-10 carousel-item ">
                                 {data.filter(data => data.type === "project").slice(0, 3).map((data) => (
                                     <div key={data.id} className={`w-1/3 h-[90%] max-h-100 m-2 px-5 py-3 bg-white flex flex-col justify-start shadow-[4px_4px_2px_rgba(0,0,0,0.7)] cursor-pointer transition-all duration-300 ease-in-out hover:scale-102 ${data.id === activeProj && "shadow-[4px_4px_2px_rgba(0,126,255,1)]"}`} onClick={() => {activeProj === data.id ? setActiveProj(null) : setActiveProj(data.id)}}>
@@ -224,9 +224,9 @@ export default function Projects(){
                         </div>
                     </div>
                     <div className="w-full h-1/10 flex justify-center items-center gap-x-5">
-                        <a href="#row1" className={`w-5 h-5 border-white border-5 rounded-full shadow-md transition-all hover:scale-110 hover:-translate-y-1 ${activeRow === 1 ? "bg-[#007eff]": "bg-white"}`} onClick={() => {setActiveRow(1)}}></a>
-                        <a href="#row2" className={`w-5 h-5 border-white border-5 rounded-full shadow-md transition-all hover:scale-110 hover:-translate-y-1 ${activeRow === 2 ? "bg-[#007eff]": "bg-white"}`} onClick={() => {setActiveRow(2)}}></a>
-                        <a href="#row3" className={`w-5 h-5 border-white border-5 rounded-full shadow-md transition-all hover:scale-110 hover:-translate-y-1 ${activeRow === 3 ? "bg-[#007eff]": "bg-white"}`} onClick={() => {setActiveRow(3)}}></a>
+                        <a onClick={ () => { document.getElementById("row1")?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" }); setActiveRow(1) } } className={`w-5 h-5 border-white border-5 rounded-full shadow-md cursor-pointer transition-all hover:scale-110 hover:-translate-y-1 ${activeRow === 1 ? "bg-[#007eff]": "bg-white"}`}></a>
+                        <a onClick={ () => { document.getElementById("row2")?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" }); setActiveRow(2) } } className={`w-5 h-5 border-white border-5 rounded-full shadow-md cursor-pointer transition-all hover:scale-110 hover:-translate-y-1 ${activeRow === 2 ? "bg-[#007eff]": "bg-white"}`}></a>
+                        <a onClick={ () => { document.getElementById("row3")?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" }); setActiveRow(3) } } className={`w-5 h-5 border-white border-5 rounded-full shadow-md cursor-pointer transition-all hover:scale-110 hover:-translate-y-1 ${activeRow === 3 ? "bg-[#007eff]": "bg-white"}`}></a>
                     </div>
                 </div>
             </div>

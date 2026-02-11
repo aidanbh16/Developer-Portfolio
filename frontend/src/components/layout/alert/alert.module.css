@@ -1,0 +1,26 @@
+.alert{
+    animation: alert 4s ease-in-out forwards;
+}
+
+@keyframes alert{
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    15%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    90%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}

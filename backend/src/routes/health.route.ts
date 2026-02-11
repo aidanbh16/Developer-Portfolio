@@ -1,7 +1,10 @@
 import { Request, Response } from "express";
+import { Router } from "express";
 
-import app from "../app"
+const router = Router()
 
-app.get("/health", (req: Request, res: Response) => {
+router.get("/health", (req: Request, res: Response) => {
     res.send("Health test success!")
 })
+
+export default router

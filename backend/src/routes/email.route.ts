@@ -1,11 +1,18 @@
 import { Request, Response } from "express";
+import { Router } from "express";
 
-import app from "../app"
+const router = Router()
 
-app.get("/email/send", (req: Request, res: Response) => {
-    const data = req.get("")
+router.post("/send", (req: Request, res: Response) => {
+    const { name, company, email, subject, content } = req.body
+    console.log(name + company + email + subject + content)
+    res.sendStatus(200);
 })
 
-app.get("/email/verify", (req: Request, res: Response) => {
-    
+router.post("/verify", (req: Request, res: Response) => {
+    const { name, email } = req.body
+    console.log(name + email)
+    res.sendStatus(200);
 })
+
+export default router

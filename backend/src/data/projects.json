@@ -8,7 +8,7 @@
         "status": "In Progress",
         "link": "https://github.com/aidanbh16/Developer-Portfolio",
         "languages": ["TypeScript"],
-        "frameworks": ["NextJS", "NodeJS", "ExpressJS", "Nodemailer"],
+        "frameworks": ["NextJS", "TailwindCSS", "NodeJS", "ExpressJS", "Nodemailer"],
         "database": [],
         "infra": ["Vercel", "Render"]
     },        

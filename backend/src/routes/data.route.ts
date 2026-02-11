@@ -1,10 +1,13 @@
 import { Request, Response } from "express";
+import { Router } from "express";
 
-import app from "../app"
 import { fetchData } from "../services/data.service";
 
-app.get("/project/data", async (req: Request, res: Response) => {
-    const data = await fetchData()
+const router = Router()
 
+router.get("/projects", async (req: Request, res: Response) => {
+    const data = await fetchData()
     res.json(data)
 })
+
+export default router

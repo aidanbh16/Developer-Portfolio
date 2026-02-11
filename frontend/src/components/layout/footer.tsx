@@ -12,7 +12,7 @@ export default function Footer(){
                 <div className="w-full flex justify-center">
                     <div className="w-1/2 flex flex-col">
                         <h1 className="text-white text-lg font-semibold">Aidan Holton</h1>
-                        <h2 className="text-white text-md">SQL Developer Intern · CS & ML Student</h2>
+                        <h2 className="text-white text-md">Data Developer Intern · CS & ML Student</h2>
                     </div>
                     <ul className="w-1/2 flex justify-end items-center gap-x-5 invert">
                         <li className="transition-all duration-200 ease-in-out hover:opacity-60 hover:scale-95">

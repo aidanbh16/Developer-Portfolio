@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 
 import Alert from "../layout/alert/alert"
+import ErrorAlert from "../layout/alert/error-alert"
 
 import env from "../../config/config"
 
@@ -15,6 +16,7 @@ import Instagram from "../../../public/icons/instagram.png"
 export default function Contact(){
     const [loading, setLoading] = useState(false)
     const [alert, setAlert] = useState(false)
+    const [errorAlert, setErrorAlert] = useState(false)
 
     async function handleEmail(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -22,42 +24,79 @@ export default function Contact(){
         setLoading(true)
 
         const formData = new FormData(event.currentTarget);
+
+        const emailData = {
+            name: String(formData.get("name")) ?? "",
+            company: String(formData.get("company")) ?? "",
+            email: String(formData.get("email")) ?? "",
+            subject: String(formData.get("subject")) ?? "",
+            content: String(formData.get("content")) ?? "",
+        }
+
+        const verifyData = {
+            name: String(formData.get("name")),
+            email: String(formData.get("email")),
+        }
+
         const emailURL = env.api_url + "/email/send"
         const verifyURL = env.api_url + "/email/verify"
 
         const form = document.querySelector("form")!;
         form.reset()
 
-        await fetch(emailURL, {
-            method: "POST",
-            body: formData,
-        });
+        try{
+            const emailRes = await fetch(emailURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(emailData),
+            });
+            if (!emailRes.ok) throw new Error("Email failed to send");
 
-        await fetch(verifyURL, {
-            method: "POST",
-            body: formData,
-        });
-
-        setTimeout(() => {
-            setLoading(false)
-        }, 3000);
-
-        setTimeout(() => {
-            setAlert(true)
+            const verifyRes = await fetch(verifyURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(verifyData),
+            });
+            if (!verifyRes.ok) throw new Error("Verification email failed to send");
+    
             setTimeout(() => {
-                setAlert(false)
-            }, 5000)
-        }, 3000);
+                setLoading(false)
+            }, 2000);
+    
+            setTimeout(() => {
+                setAlert(true)
+                setTimeout(() => {
+                    setAlert(false)
+                }, 4000)
+            }, 2100);
+        }catch(error){
+            console.log(error)
+            setTimeout(() => {
+                setLoading(false)
+            }, 2000);
+
+            setTimeout(() => {
+                setErrorAlert(true)
+                setTimeout(() => {
+                    setErrorAlert(false)
+                }, 4000)
+            }, 2100);
+        }
     }
 
     return(
         <section id="contact" className="w-full min-w-300 max-w-500 h-screen min-h-200 flex justify-center">
             {alert && <Alert />}
+            {errorAlert && <ErrorAlert />}
             <div className="w-3/4 max-w-300 h-full flex items-center gap-x-20">
                 <div className="w-2/3 flex items-center">
                     <div className="w-full h-full px-10 flex flex-col gap-y-5">
                         <h1 className="text-4xl font-semibold text-shadow-md text-black">Reach Out</h1>
-                        <form id="form" onSubmit={handleEmail} method="POST" autoComplete="off" encType="multipart/form-data" className="w-full h-full flex flex-col gap-y-5">
+                        <form id="form" onSubmit={handleEmail} method="POST" autoComplete="off" className="w-full h-full flex flex-col gap-y-5">
                             <fieldset>
                                 <input type="text" name="name" className="w-full px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Name"></input>
                             </fieldset>
@@ -70,7 +109,6 @@ export default function Contact(){
                                 <textarea name="content" className="w-full min-h-75 max-h-100 px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Content"></textarea>
                             </fieldset>
                             <fieldset className="flex flex-col gap-y-5">
-                                <input type="file" name="file" className="w-1/8 min-w-15 max-w-30 px-2 bg-neutral-400 text-black rounded-md shadow-lg cursor-pointer transition-all duration-200 ease-in-out hover:bg-neutral-400/80" />
                                 <button type="submit" className="w-1/8 min-w-15 max-w-30 p-1 bg-[#007eff] text-white font-semibold rounded-md shadow-lg cursor-pointer select-none transition-all duration-200 ease-in-out hover:bg-[#007eff]/80 hover:scale-95">
                                     {loading ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
                                 </button>

@@ -98,15 +98,15 @@ export default function Contact(){
                         <h1 className="text-4xl font-semibold text-shadow-md text-black">Reach Out</h1>
                         <form id="form" onSubmit={handleEmail} method="POST" autoComplete="off" className="w-full h-full flex flex-col gap-y-5">
                             <fieldset>
-                                <input type="text" name="name" className="w-full px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Name"></input>
+                                <input type="text" name="name" className="w-full px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Name" required></input>
                             </fieldset>
                             <fieldset className="flex flex-col gap-y-5">
                                 <input type="text" name="company" className="w-full px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Company"></input>
-                                <input type="text" name="email" className="w-full px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Email"></input>
+                                <input type="text" name="email" className="w-full px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Email" required></input>
                             </fieldset>
                             <fieldset className="flex flex-col gap-y-5">
-                                <input type="text" name="subject" className="w-full px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Subject"></input>
-                                <textarea name="content" className="w-full min-h-75 max-h-100 px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Content"></textarea>
+                                <input type="text" name="subject" className="w-full px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Subject" required></input>
+                                <textarea name="content" className="w-full min-h-75 max-h-100 px-1 py-2 bg-white rounded-md shadow-lg outline-none text-black" placeholder="Content" required></textarea>
                             </fieldset>
                             <fieldset className="flex flex-col gap-y-5">
                                 <button type="submit" className="w-1/8 min-w-15 max-w-30 p-1 bg-[#007eff] text-white font-semibold rounded-md shadow-lg cursor-pointer select-none transition-all duration-200 ease-in-out hover:bg-[#007eff]/80 hover:scale-95">

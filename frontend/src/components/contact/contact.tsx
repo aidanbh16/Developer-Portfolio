@@ -63,9 +63,7 @@ export default function Contact(){
             });
             if (!verifyRes.ok) throw new Error("Verification email failed to send");
     
-            setTimeout(() => {
-                setLoading(false)
-            }, 2000);
+            setLoading(false)
     
             setTimeout(() => {
                 setAlert(true)
@@ -74,10 +72,7 @@ export default function Contact(){
                 }, 4000)
             }, 2100);
         }catch(error){
-            console.log(error)
-            setTimeout(() => {
-                setLoading(false)
-            }, 2000);
+            setLoading(false)
 
             setTimeout(() => {
                 setErrorAlert(true)

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Router } from "express";
 
-import { sendEmail, sendVerify } from "../services/email/email.service";
+import { sendEmail, sendVerify } from "../services/email.service";
 
 const router = Router()
 

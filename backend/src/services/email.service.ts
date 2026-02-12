@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer"
 
-import env from "../../config/config";
+import env from "../config/config";
 
 export async function sendEmail(name: string, company: string, email: string, subject: string, content: string){
     const transport = nodemailer.createTransport({

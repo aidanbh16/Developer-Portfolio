@@ -21,7 +21,8 @@ router.post("/verify", async (req: Request, res: Response) => {
         const { name, email } = req.body
         await sendVerify(name, email)
         res.sendStatus(200);
-    }catch{
+    }catch(error){
+        console.log("VERIFY ERROR:", error)
         res.sendStatus(500)
     }
 })

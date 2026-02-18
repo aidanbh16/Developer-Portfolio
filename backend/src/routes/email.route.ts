@@ -6,6 +6,7 @@ import { sendEmail, sendVerify } from "../services/email.service";
 const router = Router()
 
 router.post("/send", async (req: Request, res: Response) => {
+    console.log("EMAIL ROUTE HIT");
     try{
         const { name, company, email, subject, content } = req.body
         await sendEmail(name, company, email, subject, content)

@@ -10,7 +10,8 @@ router.post("/send", async (req: Request, res: Response) => {
         const { name, company, email, subject, content } = req.body
         await sendEmail(name, company, email, subject, content)
         res.sendStatus(200)
-    }catch{
+    }catch(error){
+        console.log("EMAIL ERROR:", error)
         res.sendStatus(500)
     }
 })

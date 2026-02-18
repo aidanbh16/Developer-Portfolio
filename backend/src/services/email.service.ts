@@ -13,14 +13,12 @@ export async function sendEmail(name: string, company: string, email: string, su
         }
     })
 
-    const info = await transport.sendMail({
+    await transport.sendMail({
         from: `"${name}" <${email}>`,
         to: env.smtp_user,
         subject: subject,
         text: `From: ${name} <${email}>\nCompany: ${company}\n${content}`,
     });
-
-    console.log("Sent: " + info.envelope)
 }
 
 export async function sendVerify(name: string, email: string){
@@ -34,12 +32,10 @@ export async function sendVerify(name: string, email: string){
       }
   })
 
-  const info = await transport.sendMail({
+  await transport.sendMail({
       from: `"Aidan Holton" <${env.smtp_user}>`,
       to: email,
       subject: "Verification Email",
       text: `Thank you for contacting me ${name}, I will be in touch with you shortly.`,
   });
-
-  console.log("Sent: " + info.envelope)
 }

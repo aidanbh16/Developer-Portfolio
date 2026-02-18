@@ -7,7 +7,6 @@ export async function sendEmail(name: string, company: string, email: string, su
         host: env.smtp_host,
         port: env.smtp_port,
         secure: false,
-        requireTLS: true,
         auth: {
           user: env.smtp_user,
           pass: env.smtp_pass,
@@ -17,6 +16,7 @@ export async function sendEmail(name: string, company: string, email: string, su
     await transport.sendMail({
         from: `"${name}" <${env.smtp_user}>`,
         to: env.smtp_user,
+        replyTo: email,
         subject: subject,
         text: `From: ${name} <${email}>\nCompany: ${company}\n${content}`,
     });
